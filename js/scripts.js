@@ -39,6 +39,7 @@ consolesButton.addEventListener('click', function() {
 
     var xhr = new XMLHttpRequest();
     xhr.open('GET', URL, true);
+    statusMessage.innerText = "Loading...";
 
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4) {
@@ -69,6 +70,7 @@ consolesButton.addEventListener('click', function() {
                     consoleGallery.appendChild(consoleElement);
                 })
                 displaySummary.innerText = getSummary(response);
+                statusMessage.innerText= "";
             } else {
                 statusMessage.innerText = 'Failed to load consoles. Status: ' + xhr.status;
             }
